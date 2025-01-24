@@ -1,6 +1,6 @@
 <script setup lang="ts">
-//@ts-ignore-line: 'HelloWorld' is declared but its value is never read.
-import HelloWorld from "./components/HelloWorld.vue";
+//@ts-ignore-line: unused declaration, but used in Pug Template
+import Intro from "./components/Intro.vue";
 </script>
 
 <template lang="pug">
@@ -10,6 +10,7 @@ div
     a(href="https://vuejs.org/" target="_blank")
         img(src="./assets/vue.svg" class="logo vue" alt="Vue logo")
     HelloWorld(msg="Vite + Vue")
+    Intro
 </template>
 
 <style scoped>
