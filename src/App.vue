@@ -1,28 +1,74 @@
-<script setup lang="ts">
-//@ts-ignore-line: unused declaration, but used in Pug Template
-import Intro from "./components/Intro.vue";
-</script>
-
 <template lang="pug">
-div
-    //- a( href="https://vite.dev" target="_blank")
-    //-         img(src="/vite.svg" class="logo" alt="Vite logo")
-    //- a(href="https://vuejs.org/" target="_blank")
-    //-     img(src="./assets/vue.svg" class="logo vue" alt="Vue logo")
-    Intro
+nav: ul
+    li(
+        v-for="route in routes"
+        :class="{current: route.url.includes(currentPath.slice(1)) }"
+    )
+        a(:href="route.url") {{ route.title }}
+#component: component(:is="currentView")
 </template>
 
-<style scoped>
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+<script setup lang="ts">
+
+import { computed, ref, type Component } from "vue";
+
+import Intro from "./components/Intro.vue";
+import About from "./components/About.vue";
+import Portfolio from "./components/Portfolio.vue";
+import Resume from "./components/Resume.vue";
+import NotFound from "./components/NotFound.vue";
+
+type Routes = {
+    [key: string]:{url: string, component: Component, title: string}
+};
+
+/**
+ * Bare-bone routing from <https://vuejs.org/guide/scaling-up/routing.html>
+ */
+const currentPath = ref(window.location.hash);
+const routes: Routes = {
+  '/': {url: '#/', component: Intro, title: "Intro"},
+  '/portfolio': {url: '#/portfolio', component: Portfolio, title: "Portfolio"},
+  '/about': {url: '#/about', component: About, title: "About"},
+  '/resume': {url: '#/resume', component: Resume, title: "Resume"},
+  '/not-found': {url: '#/not-found', component: NotFound, title: "NotFound"},
+};
+
+// @ts-ignore: currentView is "unused declaration" but used in Pug template
+const currentView = computed(
+    () => routes[currentPath.value.slice(1) || '#/'].component || NotFound
+);
+
+window.addEventListener('hashchange', () => {
+    currentPath.value = window.location.hash;
+})
+
+</script>
+
+<style lang="scss">
+nav ul {
+	border: 1px solid white;
+	li, li a{
+		list-style-type: none;
+        width: 100%;
+        border: 1px dotted blueviolet;
+        display: block;
+	}
+    .current,
+    li.current{
+        font-weight: bold;
+        color: cyan;
+    }
+    .current{
+        text-decoration: underline;
+        color: cyan;
+        font-weight: bold;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 }
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-    filter: drop-shadow(0 0 2em #42b883aa);
-}
+
+
 </style>

@@ -1,7 +1,9 @@
 <template lang="pug">
-	h1 Hello, my name is Shandelle Jensen
-	h2 Front-end Web Developer
-	h3 Lehi, Utah
+	#intro
+
+		h1 Hello, my name is Shandelle Jensen
+		h2 Front-end Web Developer
+		h3 Lehi, Utah
 </template>
 
 <script setup lang="ts">
@@ -15,5 +17,16 @@
 <style lang="scss">
 .read-the-docs {
 	color: #888;
+}
+
+#intro{
+	height: 1820px;
+	width:  1820px;
+	border: 1px solid cyan;
+	h1{
+		font-size: 5rem;
+		color: cyan;
+		line-height: 3em;
+	}
 }
 </style>

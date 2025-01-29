@@ -1,10 +1,10 @@
 <template lang="pug">
-	div Portfolio
+	div Resume
 
 </template>
 
 <script setup lang="ts">
-console.log("Portfolio Page")
+console.log("Resume Page")
 </script>
 
 <style lang="scss">
