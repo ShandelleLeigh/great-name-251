@@ -1,10 +1,11 @@
 <template lang="pug">
-nav: ul
-    li(
-        v-for="route in routes"
-        :class="{current: route.url.includes(currentPath.slice(1)) }"
-    )
-        a(:href="route.url") {{ route.title }}
+.nav
+	nav: ul
+		li(
+			v-for="route in navRoutes"
+			:class="{current: (currentPath.length > 2 && route.url.includes(currentPath.slice(1)) )}"
+		)
+			a(:href="route.url") {{ route.title }}
 #component: component(:is="currentView")
 </template>
 
@@ -19,7 +20,7 @@ import Resume from "./components/Resume.vue";
 import NotFound from "./components/NotFound.vue";
 
 type Routes = {
-    [key: string]:{url: string, component: Component, title: string}
+	[key: string]:{url: string, component: Component, title: string}
 };
 
 /**
@@ -27,20 +28,28 @@ type Routes = {
  */
 const currentPath = ref(window.location.hash);
 const routes: Routes = {
-  '/': {url: '#/', component: Intro, title: "Intro"},
-  '/portfolio': {url: '#/portfolio', component: Portfolio, title: "Portfolio"},
-  '/about': {url: '#/about', component: About, title: "About"},
-  '/resume': {url: '#/resume', component: Resume, title: "Resume"},
-  '/not-found': {url: '#/not-found', component: NotFound, title: "NotFound"},
+	'/': {url: '#/', component: Intro, title: "Intro"},
+	'/portfolio': {url: '#/portfolio', component: Portfolio, title: "Portfolio"},
+	'/about': {url: '#/about', component: About, title: "About"},
+	'/resume': {url: '#/resume', component: Resume, title: "Resume"},
+	'/not-found': {url: '#/not-found', component: NotFound, title: "NotFound"},
 };
 
-// @ts-ignore: currentView is "unused declaration" but used in Pug template
+/* @ts-ignore: currentView is "unused declaration" but used in Pug template */
+const navRoutes: Routes = {
+	'/': {url: '#/', component: Intro, title: "Intro"},
+	'/portfolio': {url: '#/portfolio', component: Portfolio, title: "Portfolio"},
+	'/about': {url: '#/about', component: About, title: "About"},
+	'/resume': {url: '#/resume', component: Resume, title: "Resume"},
+};
+
+/* @ts-ignore: currentView is "unused declaration" but used in Pug template */
 const currentView = computed(
-    () => routes[currentPath.value.slice(1) || '#/'].component || NotFound
+	() => routes[currentPath.value.slice(1) || '/']?.component || NotFound
 );
 
 window.addEventListener('hashchange', () => {
-    currentPath.value = window.location.hash;
+	currentPath.value = window.location.hash;
 })
 
 </script>
@@ -50,24 +59,24 @@ nav ul {
 	border: 1px solid white;
 	li, li a{
 		list-style-type: none;
-        width: 100%;
-        border: 1px dotted blueviolet;
-        display: block;
+		width: 100%;
+		border: 1px dotted blueviolet;
+		display: block;
 	}
-    .current,
-    li.current{
-        font-weight: bold;
-        color: cyan;
-    }
-    .current{
-        text-decoration: underline;
-        color: cyan;
-        font-weight: bold;
-    }
-    a{
-        text-decoration: none;
-        color: inherit;
-    }
+	.current,
+	li.current{
+		font-weight: bold;
+		color: cyan;
+	}
+	.current{
+		text-decoration: underline;
+		color: cyan;
+		font-weight: bold;
+	}
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
 }
 
 
