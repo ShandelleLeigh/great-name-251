@@ -1,6 +1,6 @@
 <template lang="pug">
 	#not-found
-		h1 NOT FOUND
+		h1 Page Not Found
 
 </template>
 
@@ -11,7 +11,7 @@ console.log("NOT FOUND Page")
 <style lang="scss">
 #not-found{
 	height: 1820px;
-	width:  1820px;
+	width:  1000px;
 	border: 2px dashed red;
 	h1{
 		font-size: 5rem;

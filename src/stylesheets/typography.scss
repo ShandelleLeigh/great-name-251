@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Amarante&family=Poiret+One&family=Roboto:ital,wght@0,100..900;1,100..900&family=Whisper&display=swap');
+
+$font-amarante: "Amarante", serif;
+$font-poiret-one: "Poiret One", sans-serif;
+$font-whisper: "Whisper", sans-serif;
+$font-roboto: "Roboto", sans-serif;
+
+.amarante, .poiret-one, .roboto, .whisper{
+	font-style: normal;
+}
+
+// Only has Regular/400 weight
+.amarante{   font-family: $font-amarante;   }
+.poiret-one{ font-family: $font-poiret-one; }
+.whisper{    font-family: $font-whisper;    }
+
+.roboto{
+	font-optical-sizing: auto;
+	font-variation-settings: "wdth" 100;
+}
+
+$weights: 400, 600, 800;
+@each $weight in $weights{
+	.roboto-#{$weight}{
+		font-weight: $weight;
+	}
+}

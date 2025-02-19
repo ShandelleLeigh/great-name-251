@@ -1,12 +1,32 @@
 <template lang="pug">
-.nav
-	nav: ul
-		li(
-			v-for="route in navRoutes"
-			:class="{current: (currentPath.length > 2 && route.url.includes(currentPath.slice(1)) )}"
-		)
-			a(:href="route.url") {{ route.title }}
-#component: component(:is="currentView")
+nav.nav: ul
+	li(
+		v-for="route in navRoutes"
+		:class="{current: (currentPath.length > 2 && route.url.includes(currentPath.slice(1)) )}"
+	)
+		a(:href="route.url") {{ route.title }}
+//- #component: component(:is="currentView")
+#component
+	Intro
+	About
+	Portfolio
+	Resume
+
+.right
+	.color-mode
+		label(for="#color-mode")
+			span Dark/Light
+		input(type="checkbox" id="color-mode")
+
+	.social-links
+		div: a.round-row.linkedin(href="https://linkedin.com" target="_blank")
+			span LinkedIn
+			span (IMG)
+			img()
+		div: a.round-row.github(href="https://github.com" target="_blank")
+			span GitHub
+			span (IMG)
+			img()
 </template>
 
 <script setup lang="ts">
@@ -55,29 +75,7 @@ window.addEventListener('hashchange', () => {
 </script>
 
 <style lang="scss">
-nav ul {
-	border: 1px solid white;
-	li, li a{
-		list-style-type: none;
-		width: 100%;
-		border: 1px dotted blueviolet;
-		display: block;
-	}
-	.current,
-	li.current{
-		font-weight: bold;
-		color: cyan;
-	}
-	.current{
-		text-decoration: underline;
-		color: cyan;
-		font-weight: bold;
-	}
-	a{
-		text-decoration: none;
-		color: inherit;
-	}
-}
+
 
 
 </style>

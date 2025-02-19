@@ -1,9 +1,12 @@
 <template lang="pug">
-	#intro
+#intro.grid.col
+	.row.col
+			h1.font-xl Hi, I'm Shandelle
 
-		h1 Hello, my name is Shandelle Jensen
-		h2 Front-end Web Developer
-		h3 Lehi, Utah
+	.row.col
+			h2.font-3xl Web Developer
+			h3.font-2xl & UI/UX Designer
+			h4.font-xl based in Lehi
 </template>
 
 <script setup lang="ts">
@@ -20,13 +23,10 @@
 }
 
 #intro{
-	height: 1820px;
-	width:  1820px;
+	gap: 5rem;
+	width: 100%;
 	border: 1px solid cyan;
-	h1{
-		font-size: 5rem;
-		color: cyan;
-		line-height: 3em;
-	}
+
+
 }
 </style>
