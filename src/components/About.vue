@@ -13,7 +13,7 @@ console.log("About Page")
 	height: 1820px;
 	h1{
 		// font-size: 5rem;
-		color: pink;
+		// color: pink;
 		// line-height: 3em;
 	}
 }

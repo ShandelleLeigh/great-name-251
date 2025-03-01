@@ -1,27 +1,28 @@
 $color-white:     #FFFFFFDE;
 $background-dark: #242424FF;
+$color-near-black: #000013FF;
 
 $color-pink-med:  #FF4F9EFF;
 $color-green-med: #00FF99FF;
 $color-blue-med:  #80BBFFFF;
 $color-blue-drk:  #0077FFFF;
 
-$color-background-main:  $background-dark;
-$color-font-main:            $color-white;
-$color-background-secondary: $color-white;
-$color-font-secondary:   $background-dark;
+$color-background-primary:   $color-white;
+$color-font-primary:         $color-near-black;
+$color-background-secondary: $color-near-black;
+$color-font-secondary:       $color-white;
 
-$bkg-grad-dark:
-	radial-gradient(43% 47% at 52% 53%, #00ff731a 0%,#00ff7300 100%),
-	radial-gradient(53% 70% at 84% 31%,#ff4f9e2b 0%, #ff4f9e00 100%),
-	radial-gradient(52% 77% at 17% 23%,#0077ff33 0%,#80bbff00 100%),
-	linear-gradient(180deg, #010105 0%, #01010500 100%);
+$bkg-grad:
+	radial-gradient(43% 47% at 52% 53%, #80FFB933 0%, #80FFB900 100%),
+	radial-gradient(53% 70% at 84% 31%, #FF4D9D22 0%, #FF4D9D00 100%),
+	radial-gradient(52% 77% at 17% 23%, #80BBFF22 0%, #80BBFF00 100%),
+	#EAEAFBFF;
 
 @media (prefers-color-scheme: light) {
 	:root {
 		$color-background-secondary: $background-dark;
 		$color-font-secondary:           $color-white;
-		$color-background-main:          $color-white;
-		$color-font-main:            $background-dark;
+		$color-background-primary:          $color-white;
+		$color-font-primary:            $background-dark;
 	}
 }

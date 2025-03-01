@@ -6,10 +6,12 @@
     line-height: 1.5;
     font-weight: 400;
 
+    font-size:  clamp(12px,(calc(100vw / 90)), 32px);
+
     color-scheme: light dark;
-    color: $color-font-main;
-    background-color: $color-background-main;
-    background: $bkg-grad-dark;
+    color: $color-font-primary;
+    background-color: $color-background-primary;
+    background: $bkg-grad;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -59,14 +61,18 @@ h3{
     margin-block-end: unset;
 }
 
+
 .font-3xl{
     font-size: 8rem;
+    font-size: clamp(2rem, 8.8vw, 8rem);
 }
 .font-2xl{
     font-size: 6rem;
+    font-size: clamp(1.75rem, 6.6vw, 6rem);
 }
 .font-xl{
     font-size: 3rem;
+    font-size: clamp(1.5rem, 3.3vw, 3rem);
 }
 
 
@@ -143,7 +149,7 @@ button:focus-visible {
         }
 
 
-        li, li::before{
+        li, li::before, li:hover::before{
             transition: all 0.25s ease-in-out 0s;
         }
 
@@ -168,16 +174,24 @@ button:focus-visible {
             background: pink;
         }
 
-        li:nth-child(1)::before{
+        li:hover{
+            scale: 1.125;
+            &::before{
+                left: -1%;
+                background: $color-white;
+            }
+        }
+
+        li:nth-child(1).current::before{
             background: $color-pink-med;
         }
-        li:nth-child(2)::before{
+        li:nth-child(2).current::before{
             background: $color-green-med;
         }
-        li:nth-child(3)::before{
+        li:nth-child(3).current::before{
             background: $color-blue-med;
         }
-        li:nth-child(4)::before{
+        li:nth-child(4).current::before{
             background: $color-blue-drk;
         }
 
@@ -186,6 +200,7 @@ button:focus-visible {
             width: 100%;
         }
 
+
         .current,
         li.current a{
             font-weight: bold;
@@ -193,13 +208,6 @@ button:focus-visible {
         }
 
 
-        li:hover{
-            scale: 1.125;
-            &::before{
-                left: -1%;
-                background: $color-white;
-            }
-        }
     }
 
     .right,
@@ -250,7 +258,7 @@ button:focus-visible {
 
 
         h1, h2, h3, h4{
-            color: $color-font-secondary;
+            color: $color-font-primary;
         }
     }
 
@@ -261,6 +269,15 @@ button:focus-visible {
     }
 
 }
+
+
+
+// @media screen and (max-width: 800px) {
+//     #app #intro{
+//         h2,h3{font-size: large;}
+//         h4{font-size: medium;}
+//     }
+// }
 
 
 @media (prefers-color-scheme: light) {
