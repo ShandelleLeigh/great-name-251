@@ -11,7 +11,7 @@
     color-scheme: light dark;
     color: $color-font-primary;
     background-color: $color-background-primary;
-    background: $bkg-grad;
+    background: $bkg-grad-light;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -119,15 +119,16 @@ button:focus-visible {
     padding: 0 1rem;
     display: grid;
     grid-template-columns: 5rem 1fr;
-    width: clamp(500px, 100vw, 1080px);
+    width: clamp(500px, 100vw, 1290px);
     gap: 1rem;
+
     &, #component{
         width: 100%;
     }
 
     #component div{
         padding: 1.5rem;
-        width: 100%;
+        // width: 100%;
     }
     .nav, .nav ul{
         margin: 0;
@@ -247,20 +248,59 @@ button:focus-visible {
     grid-auto-flow: row;
 }
 
-#app #intro{
-    grid-template-rows: 1fr 3fr;
+#intro{
+    display: flex;
+    flex-direction: column;
+	gap: 5rem;
 
     .row{
-        // display: flex;
+        display: flex;
         height: fit-content;
         width: fit-content;
-        background-color: $color-white;
+
+        .col{
+            background-color: $color-white;
+            border: $border-blue-4;
+            box-shadow: $shadow-blue-light-24;
+        }
 
 
         h1, h2, h3, h4{
             color: $color-font-primary;
         }
     }
+
+    .name .col{
+        border-radius: $border-radius-1;
+    }
+
+    .about .col::before{
+        content: "";
+        position: absolute;
+        display: block;
+        top: -0.25rem;
+        left: -0.25rem;
+        width: calc(100% + 0.5rem);
+        height: calc(100% + 0.5rem);
+        background: $bkg-grad-linear;
+        border-radius: calc($border-radius-2 + 0.25rem);
+        z-index: -1;
+    }
+
+    .about .col{
+        border-radius: $border-radius-2;
+        // grid-column: -1;
+        // grid-row: -1;
+        place-self: end;
+        position: relative;
+        // border-color: transparent;
+        // border: 6px solid transparent;
+        border: none;
+        // box-sizing: border-box;
+        // border-color:  $bkg-grad-linear;
+
+    }
+
 
     .row:last-of-type{
         // grid-column: -1;
@@ -271,10 +311,9 @@ button:focus-visible {
 }
 
 
-
 // @media screen and (max-width: 800px) {
 //     #app #intro{
-//         h2,h3{font-size: large;}
+//         h2,33{font-size: large;}
 //         h4{font-size: medium;}
 //     }
 // }

@@ -1,5 +1,5 @@
-$color-white:     #FFFFFFDE;
-$background-dark: #242424FF;
+$color-white:      #FFFFFFDE;
+$background-dark:  #242424FF;
 $color-near-black: #000013FF;
 
 $color-pink-med:  #FF4F9EFF;
@@ -12,11 +12,35 @@ $color-font-primary:         $color-near-black;
 $color-background-secondary: $color-near-black;
 $color-font-secondary:       $color-white;
 
+$border-radius-2: 2rem;
+$border-radius-1: 1rem;
+
 $bkg-grad:
 	radial-gradient(43% 47% at 52% 53%, #80FFB933 0%, #80FFB900 100%),
 	radial-gradient(53% 70% at 84% 31%, #FF4D9D22 0%, #FF4D9D00 100%),
 	radial-gradient(52% 77% at 17% 23%, #80BBFF22 0%, #80BBFF00 100%),
 	#EAEAFBFF;
+
+$bkg-grad-light:
+	radial-gradient(99% 31% at 00% 00%, rgba($color-green-med, 0.15) 0%, rgba($color-green-med, 0) 95%),
+	radial-gradient(44% 50% at 99% 50%, rgba($color-pink-med,  0.15) 0%, rgba($color-pink-med,  0) 95%),
+	radial-gradient(50% 50% at 50% 50%, rgba($color-blue-med,  0.16) 0%, rgba($color-blue-med,  0) 95%),
+	radial-gradient(43% 47% at 52% 53%, rgba($color-green-med, 0.15) 0%, rgba($color-green-med, 0) 100%),
+	radial-gradient(53% 70% at 84% 31%, rgba($color-pink-med,  0.15) 0%, rgba($color-pink-med,  0) 100%),
+	radial-gradient(52% 77% at 17% 23%, rgba($color-blue-drk,  0.20) 0%, rgba($color-blue-med,  0) 100%),
+	#F2F5FF;
+
+$shadow-blue-light-24: 0 0 24px rgba($color-blue-drk, 0.3);
+$border-blue-4: 4px solid #80BBFF;
+
+
+//////
+
+$bkg-grad-linear: linear-gradient(137.5deg, $color-green-med 0%, $color-blue-med 44%, $color-pink-med 105%);
+
+//////
+
+
 
 @media (prefers-color-scheme: light) {
 	:root {
