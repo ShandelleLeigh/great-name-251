@@ -14,10 +14,10 @@ nav.nav: ul
 
 .right
 	.social-links
-		div: a.round-row.linkedin(href="https://linkedin.com" target="_blank")
-			span (IMG)
+		div: a.round-row.linkedin(href="https://www.linkedin.com/in/shandelle-leigh/" target="_blank")
+			include ./assets/linkedin.pug
 			span LinkedIn
-		div: a.round-row.github(href="https://github.com" target="_blank")
+		div: a.round-row.github(href="https://github.com/ShandelleLeigh" target="_blank")
 			include ./assets/github.pug
 			span GitHub
 </template>
