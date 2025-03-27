@@ -19,6 +19,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* Text */
 
 body {
@@ -241,24 +245,42 @@ button:focus-visible {
 
 .right{
     position: fixed;
-    top: 0;
+    top: 1rem;
     right: 0;
-    padding: 1rem;
 
-    .social-links div, .social-links a{
+    &, div, a {width: 9rem;}
+}
+
+.social-links {
+    // width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.25rem;
+    place-items: end;
+
+    a{
         display: grid;
-        grid-auto-flow: column;
+        grid-template-columns: 1.5rem 1fr;
         gap: 0.25rem;
         transition: all 333ms ease-in-out;
+        width: 100%;
+        background-color: $color-background-primary;
+        padding: 0.25rem 0.5rem 0.25rem 1rem;
+        border-radius: $border-radius-1 0 0 $border-radius-1;
+        border: 1px solid $color-blue-drk;
+        border-right-color: transparent;
+        align-items: center;
     }
+
 
     a, span, .icon .fill{
         color: $color-blue-drk;
         fill: $color-blue-drk;
     }
 
-    .social-links a:hover{
+    a:hover{
         transform: scale(110%);
+        box-shadow: $shadow-blue-light-24;
         span{
             font-weight: 700;
             text-decoration: underline;
@@ -266,15 +288,18 @@ button:focus-visible {
     }
 
     a:active, a:focus, a:visited{
-        svg path.fill, span{
-            text-decoration: underline;
-            color: $color-purple-d;
+
+        border: 1px solid $color-purple-d;
+
+        svg path.fill{
             fill:  $color-purple-d;
         }
-    }
 
-    svg.icon{}
-    svg path.fill{}
+        span{
+            text-decoration: underline;
+            color: $color-purple-d;
+        }
+    }
 }
 
 /* Pages */

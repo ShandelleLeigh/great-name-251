@@ -1,5 +1,6 @@
 <template lang="pug">
-	div Resume
+	div
+		h1 Resume
 
 </template>
 

@@ -14,10 +14,10 @@ nav.nav: ul
 
 .right
 	.social-links
-		div: a.round-row.linkedin(href="https://www.linkedin.com/in/shandelle-leigh/" target="_blank")
+		a.round-row.linkedin(href="https://www.linkedin.com/in/shandelle-leigh/" target="_blank")
 			include ./assets/linkedin.pug
 			span LinkedIn
-		div: a.round-row.github(href="https://github.com/ShandelleLeigh" target="_blank")
+		a.round-row.github(href="https://github.com/ShandelleLeigh" target="_blank")
 			include ./assets/github.pug
 			span GitHub
 </template>
@@ -36,8 +36,8 @@ nav.nav: ul
 
 	const routes: Routes = [
 		{url: '/#', component: Intro, title: "Intro"},
-		{url: '/#portfolio', component: Portfolio, title: "Portfolio"},
 		{url: '/#about', component: About, title: "About"},
+		{url: '/#portfolio', component: Portfolio, title: "Portfolio"},
 		{url: '/#resume', component: Resume, title: "Resume"},
 		{url: '/#not-found', component: NotFound, title: "NotFound"}
 	];
