@@ -8,8 +8,11 @@
 			h3 Canine Revolution Dog Training Wordpress Home Page
 		div
 			h2 Illustrations
-
-			h3 End of Life Medical Decisions
+			a(
+				target="_blank"
+				href="https://medicaldecisions.info/"
+			)
+				h3 End of Life Medical Decisions
 </template>
 
 <script setup lang="ts">
