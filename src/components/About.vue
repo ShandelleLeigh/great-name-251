@@ -11,10 +11,10 @@ console.log("About Page")
 <style lang="scss">
 #about{
 	height: 1820px;
-	h1{
+	// h1{
 		// font-size: 5rem;
 		// color: pink;
 		// line-height: 3em;
-	}
+	// }
 }
 </style>

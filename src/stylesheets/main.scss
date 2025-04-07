@@ -60,6 +60,9 @@ h2{
 h3{
     font-size: 1.5rem;
 }
+h4{
+    font-weight: 500;
+}
 
 .font-3xl,
 .font-2xl,
@@ -93,6 +96,12 @@ svg.icon{
 
     path.fill{
         fill: $color-near-black;
+
+    }
+
+    path.stroke{
+        // stroke: $color-near-black;
+        fill: none;
     }
 }
 
@@ -104,9 +113,10 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: $color-background-primary;
     cursor: pointer;
     transition: border-color 0.25s;
+    transition: 0.25s ease-in-out all;
 }
 button:hover {
     border-color: #646cff;
@@ -114,6 +124,17 @@ button:hover {
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+.button-like.tab{
+    color: $color-font-primary;
+}
+
+.button-like svg{
+    transition: 0.25s ease-in-out all;
+}
+
+.button-like.open svg{
+    transform: rotate(180deg);
 }
 
 /* CSS Grid */
@@ -391,6 +412,23 @@ button:focus-visible {
         place-self: end;
     }
 
+}
+
+#app #portfolio{
+    .expandable{
+        width: 550px;
+        min-height: 50px;
+        box-shadow: inset $shadow-blue-light-24;
+        padding: unset;
+    }
+
+    .expandable.collapsed iframe{
+        height: 0px;
+    }
+
+    .expandable.expanded iframe{
+        height: 450px;
+    }
 }
 
 
