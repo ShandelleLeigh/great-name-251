@@ -24,35 +24,28 @@
 
 <script setup lang="ts">
 
-import { computed, ref, type Ref } from 'vue';
+import { computed, ref } from 'vue';
 
 // //- div(@click="$emit('switchState', {name: name, state: !state })") Expand?
 
 /* @ts-ignore: unused destructured elements are used in pug template */
 const props = defineProps<{item: {state: boolean, src: string, name: string}}>();
-
-// console.log( " OPEN ", props.item.name )
-
 const emit = defineEmits<{(e: 'switchState', value: {name: string, state: boolean}): void}>();
 
+/* @ts-ignore: more items in the pug template */
 const state = computed(()=>{return props.item.state});
+/* @ts-ignore: more items in the pug template */
 const src = ref(props.item.src);
+/* @ts-ignore: more items in the pug template */
 const name = ref(props.item.name);
 
-console.log( " REF PROPS: ", state.value, src.value, name.value)
-
-
-
+/* @ts-ignore: unused destructured elements are used in pug template */
 const emitSwitchState = () => {
-	console.log( " emitting:  ", props.item.name, "Switches to state: ", !props.item.state )
 	emit('switchState', {name: props.item.name, state: !props.item.state})
-	console.log( " REF PROPS: ", state.value, src.value, name.value)
 };
 
 </script>
 
 <style lang="scss">
-.expand{
-
-}
+// .expand{}
 </style>
