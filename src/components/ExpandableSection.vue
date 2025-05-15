@@ -1,7 +1,5 @@
 <template lang="pug">
-.expand(
-
-)
+.expand()
 	.button-like.tab(
 		@click="emitSwitchState"
 		:class="(state === true ? 'open' : 'closed')"

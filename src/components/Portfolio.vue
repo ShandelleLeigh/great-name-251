@@ -3,77 +3,67 @@
 	div Portfolio
 		div
 			h2 Web Designs and Development
-		div
-			h3 Olympus Business Capitol Home Page
-			h4
-				|
-				a(
-					target="_blank"
-					href="https://olympusbusinesscapital.com/"
-				)  Designed in Figma
-				|
-				| and
-				|
-				a(
-					target="_blank"
-					href="https://olympusbusinesscapital.com/"
-				) built in Wordpress
-				ExpandableSection(
-				:item="figmaPreviews.olympus"
-				@switch-state = "switchState"
-			)
 
-			h3 Canine Revolution Dog Training Home Page
-			h4
-				|
-				a(
-					target="_blank"
-					href="https://olympusbusinesscapital.com/"
-				)  Designed in Figma
-				|
-				| and
-				|
-				a(
-					target="_blank"
-					href="https://caninerevolutiondogtraining.com/"
-				) built in Wordpress
 
-				ExpandableSection(
-				:item="figmaPreviews.canine"
-				@switch-state = "switchState"
-			)
+			div.g-cols-2
+				h3 Olympus Business Capitol Home Page
+				h4
+					|
+					a(
+						target="_blank"
+						href="https://olympusbusinesscapital.com/"
+					)  Designed in Figma
+					|
+					| and
+					|
+					a(
+						target="_blank"
+						href="https://olympusbusinesscapital.com/"
+					) built in Wordpress
+				.col-2
+					ExpandableSection(
+					:item="figmaPreviews.olympus"
+					@switch-state = "switchState"
+				)
+
+				h3 Canine Revolution Dog Training Home Page
+				h4
+					|
+					a(
+						target="_blank"
+						href="https://olympusbusinesscapital.com/"
+					)  Designed in Figma
+					|
+					| and
+					|
+					a(
+						target="_blank"
+						href="https://caninerevolutiondogtraining.com/"
+					) built in Wordpress
+
+				.col-2
+					ExpandableSection(
+						:item="figmaPreviews.canine"
+						@switch-state = "switchState"
+					)
+
 		div
 			h2 Illustrations
-		div
-			a(
-				target="_blank"
-				href="https://medicaldecisions.info/"
-			)
-				h3 End of Life Medical Decisions
-
-			ExpandableSection(
-				:item="figmaPreviews.endgame"
-				@switch-state = "switchState"
-			)
-		div
-			h2 Other Web and App Development and some Design
-
-			h3 PrintMaker
-
-			h4
-				| on
-				|
-				a(
-					href="https://apps.apple.com/us/app/printmaker/id1541193243"
-				) iOS,
-				|
-				| and
-				|
+			div.g-cols-2
 				a(
 					target="_blank"
-					href="https://play.google.com/store/apps/details?id=io.busyhuman.printmaker&hl=en_US"
-				) Android
+					href="https://medicaldecisions.info/"
+				)
+					h3 End of Life Medical Decisions
 
+				.col-2
+					ExpandableSection(
+						:item="figmaPreviews.endgame"
+						@switch-state = "switchState"
+					)
+
+		div
+			h2 Other Web and App Development and some Design
 
 
 </template>
