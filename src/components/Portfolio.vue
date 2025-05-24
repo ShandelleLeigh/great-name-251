@@ -3,15 +3,13 @@
 	div Portfolio
 		div
 			h2 Web Designs and Development
-
-
 			div.g-cols-2
 				h3 Olympus Business Capitol Home Page
 				h4
 					|
 					a(
 						target="_blank"
-						href="https://olympusbusinesscapital.com/"
+						href="https://www.figma.com/proto/HoEyw0gxKj3CLxbq5OmgCL/Portfolio-Designs?node-id=7-891&t=7z044vzLLUgV9pOZ-1&scaling=scale-down-width&content-scaling=fixed&page-id=2%3A281&starting-point-node-id=7%3A891&show-proto-sidebar=1"
 					)  Designed in Figma
 					|
 					| and
@@ -21,17 +19,17 @@
 						href="https://olympusbusinesscapital.com/"
 					) built in Wordpress
 				.col-2
-					ExpandableSection(
-					:item="figmaPreviews.olympus"
-					@switch-state = "switchState"
-				)
+					//- ExpandableSection(
+					//- 	:item="figmaPreviews.olympus"
+					//- 	@switch-state="switchState"
+					//- )
 
 				h3 Canine Revolution Dog Training Home Page
 				h4
 					|
 					a(
 						target="_blank"
-						href="https://olympusbusinesscapital.com/"
+						href="https://www.figma.com/proto/HoEyw0gxKj3CLxbq5OmgCL/Portfolio-Designs?node-id=1-467&p=f&t=QU3EBtszlgKznOIv-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1"
 					)  Designed in Figma
 					|
 					| and
@@ -42,9 +40,13 @@
 					) built in Wordpress
 
 				.col-2
-					ExpandableSection(
-						:item="figmaPreviews.canine"
-						@switch-state = "switchState"
+					//- ExpandableSection(
+					//- 	:item="figmaPreviews.canine"
+					//- 	@switch-state="switchState"
+					//- )
+					LazyLoad(
+						:source="PATHS.CRDT.HOME_PAGE"
+						alt="CRDT home page design preview"
 					)
 
 		div
@@ -57,10 +59,10 @@
 					h3 End of Life Medical Decisions
 
 				.col-2
-					ExpandableSection(
-						:item="figmaPreviews.endgame"
-						@switch-state = "switchState"
-					)
+					//- ExpandableSection(
+					//- 	:item="figmaPreviews.endgame"
+					//- 	@switch-state="switchState"
+					//- )
 
 		div
 			h2 Other Web and App Development and some Design
@@ -73,7 +75,16 @@ import { ref, type Ref } from 'vue';
 
 /* @ts-ignore : used in Pug template */
 import ExpandableSection from "./ExpandableSection.vue";
+/* @ts-ignore : used in Pug template */
+import LazyLoad from "./LazyLoad.vue";
 
+/* @ts-ignore : used in Pug template */
+const PATHS = {
+	CRDT:{
+		HOME_PAGE: "/CRDT_home-page_compressed.jpg",
+		TRAINING: "/CRDT_dog-training_compressed.jpg",
+	}
+};
 
 /* @ts-ignore: figmaPreviews is "unused declaration" but used in Pug template */
 const figmaPreviews: Ref<{
