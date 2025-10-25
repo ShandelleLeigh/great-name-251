@@ -9,18 +9,18 @@
 					|
 					a(
 						target="_blank"
-						href="https://www.figma.com/proto/HoEyw0gxKj3CLxbq5OmgCL/Portfolio-Designs?node-id=7-891&t=7z044vzLLUgV9pOZ-1&scaling=scale-down-width&content-scaling=fixed&page-id=2%3A281&starting-point-node-id=7%3A891&show-proto-sidebar=1"
+						:href="linksList.olympus.protoDesign"
 					)  Designed in Figma
 					|
 					| and
 					|
 					a(
 						target="_blank"
-						href="https://olympusbusinesscapital.com/"
+						:href="linksList.olympus.liveSite"
 					) built in Wordpress
 				.col-2
 					//- ExpandableSection(
-					//- 	:item="figmaPreviews.olympus"
+					//- 	:item="linksList.olympus"
 					//- 	@switch-state="switchState"
 					//- )
 
@@ -29,19 +29,19 @@
 					|
 					a(
 						target="_blank"
-						href="https://www.figma.com/proto/HoEyw0gxKj3CLxbq5OmgCL/Portfolio-Designs?node-id=1-467&p=f&t=QU3EBtszlgKznOIv-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1"
+						:href="linksList.canine.protoDesign"
 					)  Designed in Figma
 					|
 					| and
 					|
 					a(
 						target="_blank"
-						href="https://caninerevolutiondogtraining.com/"
+						:href="linksList.canine.liveSite"
 					) built in Wordpress
 
 				.col-2
 					//- ExpandableSection(
-					//- 	:item="figmaPreviews.canine"
+					//- 	:item="linksList.canine"
 					//- 	@switch-state="switchState"
 					//- )
 					LazyLoad(
@@ -60,7 +60,7 @@
 
 				.col-2
 					//- ExpandableSection(
-					//- 	:item="figmaPreviews.endgame"
+					//- 	:item="linksList.endgame"
 					//- 	@switch-state="switchState"
 					//- )
 
@@ -71,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
+import { linksList } from '../data/portfolioLinks';
 
 /* @ts-ignore : used in Pug template */
 import ExpandableSection from "./ExpandableSection.vue";
@@ -86,30 +86,10 @@ const PATHS = {
 	}
 };
 
-/* @ts-ignore: figmaPreviews is "unused declaration" but used in Pug template */
-const figmaPreviews: Ref<{
-	[key: string]: {name: string,state: boolean,src: string}
-}> = ref({
-	olympus: {
-		name: "olympus",
-		state: false,
-		src: "https://www.figma.com/proto/HoEyw0gxKj3CLxbq5OmgCL/Portfolio-Designs?node-id=7-891&t=2UnPM0N52REiTY87-1&viewport=296%2C302%2C0.12&scaling=contain&content-scaling=fixed&embed-host=share"
-	},
-	canine: {
-		name: "canine",
-		state: false,
-		src: "https://embed.figma.com/proto/HoEyw0gxKj3CLxbq5OmgCL/Portfolio-Designs?page-id=0%3A1&node-id=1-467&p=f&viewport=296%2C302%2C0.12&scaling=contain&content-scaling=fixed&embed-host=share",
-	},
-	endgame: {
-		name: "endgame",
-		state: false,
-		src: "https://embed.figma.com/proto/3S2dvRS9xRqnSrzLozoZgu/FLW-illustrations?page-id=0%3A1&node-id=6-927&p=f&viewport=736%2C-561%2C0.1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=6%3A927&embed-host=share",
-	},
-});
 
-/* @ts-ignore: figmaPreviews is "unused declaration" but used in Pug template */
+/* @ts-ignore: linksList is "unused declaration" but used in Pug template */
 const switchState = (e: {name: string, state: boolean}) => {
-	figmaPreviews.value[e.name].state = e.state;
+	linksList[e.name].state = e.state;
 }
 
 

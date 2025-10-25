@@ -1,13 +1,10 @@
 <template lang="pug">
-.lazy-wraper(
-	:style="style"
-)
+.lazy-wraper()
 	.skeleton-image( )
 	img.skeleton-image(
 		:data-url="source"
 		:alt="altText"
 		:src="source"
-		:style="style"
 	)
 
 </template>
@@ -21,7 +18,6 @@ import {
 
 /* @ts-ignore: unused declaration(s) used in pug template */
 const props = defineProps<{
-	style?: {height?: number | string, width?: number | string },
 	source: string,
 	alt?: string,
 }>();
@@ -36,11 +32,14 @@ const props = defineProps<{
 // 	};`
 // )
 
-console.log( "Did it load? ", style.value, props?.style?.height);
+console.log( "Did it load? ",   );
 /* @ts-ignore: unused declaration(s) used in pug template */
 const altText = ref(props.alt || "image with unset alt text. oops.");
 
 </script>
 
 <style lang="scss">
+.lazy-wraper, .lazy-wraper .skeleton-image{
+	max-width: 50vw;
+}
 </style>
